@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d3b2e"/>
+      <stop offset="100%" style="stop-color:#1a6b52"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0c94a"/>
+      <stop offset="100%" style="stop-color:#d4af37"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffef5"/>
+      <stop offset="100%" style="stop-color:#f5ecd0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bg)" rx="90"/>
+  
+  <!-- Border emas ganda -->
+  <rect x="20" y="20" width="472" height="472" fill="none" stroke="url(#gold)" stroke-width="5" rx="70"/>
+  <rect x="35" y="35" width="442" height="442" fill="none" stroke="url(#gold)" stroke-width="1.5" rx="60" opacity="0.5"/>
+  
+  <!-- Ornamen sudut -->
+  <circle cx="60" cy="60" r="7" fill="url(#gold)"/>
+  <circle cx="452" cy="60" r="7" fill="url(#gold)"/>
+  <circle cx="60" cy="452" r="7" fill="url(#gold)"/>
+  <circle cx="452" cy="452" r="7" fill="url(#gold)"/>
+  
+  <!-- Bulan sabit dan bintang di atas -->
+  <g transform="translate(256, 100)">
+    <path d="M -15 -25 Q -35 0 -15 25 Q 5 18 5 0 Q 5 -18 -15 -25 Z" fill="url(#gold)"/>
+    <polygon points="25,-8 29,4 42,4 31,12 35,25 25,17 15,25 19,12 8,4 21,4" fill="url(#gold)"/>
+  </g>
+  
+  <!-- Buku Al-Qur'an terbuka -->
+  <g transform="translate(256, 270)">
+    <!-- Bayangan buku -->
+    <ellipse cx="0" cy="110" rx="130" ry="10" fill="#000" opacity="0.2"/>
+    
+    <!-- Sampul buku kiri -->
+    <path d="M -130 -90 L -130 90 L -5 105 L -5 -75 Z" fill="url(#gold)" stroke="#0d3b2e" stroke-width="2"/>
+    <!-- Sampul buku kanan -->
+    <path d="M 5 -75 L 5 105 L 130 90 L 130 -90 Z" fill="url(#gold)" stroke="#0d3b2e" stroke-width="2"/>
+    
+    <!-- Halaman kiri -->
+    <path d="M -120 -80 L -120 80 L -8 93 L -8 -67 Z" fill="url(#page)"/>
+    <!-- Halaman kanan -->
+    <path d="M 8 -67 L 8 93 L 120 80 L 120 -80 Z" fill="url(#page)"/>
+    
+    <!-- Garis tengah buku -->
+    <line x1="0" y1="-75" x2="0" y2="105" stroke="#0d3b2e" stroke-width="3"/>
+    
+    <!-- Ornamen halaman kiri -->
+    <circle cx="-65" cy="5" r="30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="-65" cy="5" r="18" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Ornamen halaman kanan -->
+    <circle cx="65" cy="5" r="30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="65" cy="5" r="18" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Kaligrafi "Quran" di tengah -->
+    <text x="0" y="20" text-anchor="middle" font-family="Amiri, serif" font-size="60" font-weight="bold" fill="#0d3b2e">ﷲ</text>
+  </g>
+  
+  <!-- Teks AL-QUR'AN di bawah -->
+  <text x="256" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#gold)" letter-spacing="3">AL-QUR'AN</text>
+  <text x="256" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="url(#gold)" letter-spacing="2" opacity="0.8">DIGITAL</text>
+</svg>
