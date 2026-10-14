@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Al-Qur'an Digital</title>
+<title>Al-Qur'an Digital - Mushaf Standar</title>
 <meta name="theme-color" content="#0d3b2e">
 <meta name="description" content="Al-Qur'an Digital dengan Tajwid, Jadwal Sholat, dan Audio Murottal">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -103,58 +103,37 @@ header h1{font-size:1.1rem}
 .surah-detail-header .arabic-name{font-family:'Amiri',serif;font-size:2.2rem;color:#0d3b2e;margin-bottom:6px}
 .surah-detail-header .info{color:#666;font-size:0.85rem;margin-top:6px}
 
-/* Info bar di detail surah - menampilkan status tajwid */
-.info-bar{background:white;border-radius:10px;padding:8px 12px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);font-size:0.8rem}
-.info-bar .tajwid-status{display:flex;align-items:center;gap:6px;color:#0d3b2e;font-weight:600}
-.info-bar .tajwid-dot{width:10px;height:10px;border-radius:50%;background:#27ae60}
-.info-bar .tajwid-dot.off{background:#95a5a6}
+/* MUSHAF NAVIGATION */
+.mushaf-nav{background:white;border-radius:12px;padding:12px;margin-bottom:12px;box-shadow:0 3px 12px rgba(0,0,0,0.15);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mushaf-nav button{background:#0d3b2e;color:white;border:none;padding:10px 16px;border-radius:20px;font-weight:bold;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
+.mushaf-nav button:active{transform:scale(0.95)}
+.mushaf-nav button:disabled{background:#ccc;cursor:not-allowed}
+.mushaf-nav .page-info{font-weight:bold;color:#0d3b2e;font-size:0.9rem;text-align:center;flex:1}
+.mushaf-nav .page-info small{display:block;font-size:0.7rem;color:#888;font-weight:normal}
 
-.page-nav{background:white;border-radius:10px;padding:10px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.page-nav button{background:#0d3b2e;color:white;border:none;padding:8px 14px;border-radius:16px;font-weight:bold;font-size:0.8rem}
-.page-nav button:disabled{background:#ccc}
-.page-info{font-weight:bold;color:#0d3b2e;font-size:0.9rem}
-.bismillah{font-family:'Amiri Quran','Amiri',serif;font-size:2rem;color:#0d3b2e;text-align:center;margin:20px 0;padding:15px;background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(212,175,55,0.05));border-radius:10px;border:2px solid #d4af37}
-.ayah-card{background:white;border-radius:12px;padding:16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:all 0.4s ease;border:2px solid transparent}
-.ayah-card.audio-playing{background:linear-gradient(135deg,rgba(255,243,176,0.6),rgba(255,236,139,0.4));border-color:#d4af37;box-shadow:0 4px 20px rgba(212,175,55,0.4);transform:scale(1.01)}
-.ayah-header{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#0d3b2e,#1a6b52);color:white;padding:8px 12px;border-radius:8px;margin:-4px -4px 12px -4px;font-size:0.85rem}
-.ayah-header-left{display:flex;align-items:center;gap:8px}
-.ayah-number-ar{font-size:1.1rem;color:#d4af37;font-weight:bold}
-.play-btn{background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);color:white;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;touch-action:none}
-.play-btn:active{transform:scale(0.9)}
-.play-btn.playing{background:#d4af37;color:#0d3b2e;border-color:#d4af37;animation:pulse 1.2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-.ayah-arabic{font-family:'Amiri Quran','Amiri',serif;font-size:1.9rem;line-height:2.4;text-align:right;direction:rtl;color:#222;margin-bottom:10px}
-.ayah-translation{color:#444;line-height:1.6;font-size:0.9rem;padding-top:8px;border-top:1px dashed #ddd;font-style:italic}
-.audio-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#0d3b2e,#1a6b52);color:white;padding:10px 16px;display:flex;align-items:center;gap:10px;z-index:200;box-shadow:0 -3px 15px rgba(0,0,0,0.3);transform:translateY(100%);transition:transform 0.3s ease}
-.audio-bar.active{transform:translateY(0)}
-.audio-bar-info{flex:1;min-width:0}
-.audio-bar-title{font-weight:bold;font-size:0.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.audio-bar-sub{font-size:0.7rem;opacity:0.7}
-.audio-bar-btn{background:#d4af37;color:#0d3b2e;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.1rem;font-weight:bold;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.audio-bar-btn.next{background:#27ae60;color:white;width:36px;height:36px;font-size:1rem}
-.audio-bar-btn.stop{background:#e74c3c;color:white;width:36px;height:36px;font-size:1rem}
-.mushaf-container{background:#faf8f0;border:8px double #d4af37;border-radius:8px;margin-bottom:15px;box-shadow:0 5px 25px rgba(0,0,0,0.2);position:relative;overflow:hidden}
-.mushaf-header{background:linear-gradient(135deg,#0d3b2e 0%,#1a6b52 100%);color:#d4af37;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #d4af37;font-family:'Amiri',serif}
-.mushaf-header-left{font-size:1.1rem;font-weight:bold}
-.mushaf-header-right{font-size:0.9rem;opacity:0.9}
-.mushaf-page{padding:30px 25px;min-height:600px;direction:rtl;font-family:'Amiri Quran','Amiri',serif;position:relative;background:#faf8f0}
-.mushaf-page::before,.mushaf-page::after{content:'';position:absolute;width:60px;height:60px;border:3px solid #d4af37;opacity:0.3}
-.mushaf-page::before{top:10px;right:10px;border-left:none;border-bottom:none;border-radius:0 8px 0 0}
-.mushaf-page::after{bottom:10px;left:10px;border-right:none;border-top:none;border-radius:0 0 0 8px}
-.mushaf-text{font-size:1.8rem;line-height:3;color:#1a1a1a;text-align:justify;text-align-last:right;direction:rtl;word-spacing:2px}
+/* MUSHAF PAGE - Standar Utsmani */
+.mushaf-wrapper{background:#faf8f0;border:4px double #d4af37;border-radius:8px;margin-bottom:15px;box-shadow:0 5px 25px rgba(0,0,0,0.2);position:relative;overflow:hidden}
+.mushaf-page{padding:40px 30px;min-height:700px;direction:rtl;font-family:'Amiri Quran','Amiri',serif;position:relative;background:#faf8f0}
+.mushaf-page::before,.mushaf-page::after{content:'';position:absolute;width:80px;height:80px;border:3px solid #d4af37;opacity:0.4}
+.mushaf-page::before{top:15px;right:15px;border-left:none;border-bottom:none;border-radius:0 12px 0 0}
+.mushaf-page::after{bottom:15px;left:15px;border-right:none;border-top:none;border-radius:0 0 0 12px}
+.mushaf-text{font-size:2rem;line-height:3.2;color:#1a1a1a;text-align:justify;text-align-last:center;direction:rtl;word-spacing:3px;letter-spacing:1px}
 .mushaf-verse{display:inline;cursor:pointer;transition:all 0.4s ease;border-radius:4px;padding:2px 0}
 .mushaf-verse.highlighted{background:rgba(255,243,176,0.95);padding:2px 4px}
 .mushaf-verse.audio-playing{background:linear-gradient(135deg,rgba(255,215,0,0.4),rgba(255,236,139,0.6));padding:2px 4px;box-shadow:0 0 0 2px rgba(212,175,55,0.6);border-radius:4px}
-.verse-number{display:inline-block;background:radial-gradient(circle,#f0c94a 0%,#d4af37 100%);color:#0d3b2e;border-radius:50%;width:34px;height:34px;line-height:34px;text-align:center;font-size:0.85rem;font-weight:bold;margin:0 8px;vertical-align:middle;font-family:sans-serif;border:2px solid #0d3b2e;box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:pointer;transition:all 0.2s;touch-action:none}
+.verse-number{display:inline-block;background:radial-gradient(circle,#f0c94a 0%,#d4af37 100%);color:#0d3b2e;border-radius:50%;width:36px;height:36px;line-height:36px;text-align:center;font-size:0.9rem;font-weight:bold;margin:0 8px;vertical-align:middle;font-family:sans-serif;border:2px solid #0d3b2e;box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:pointer;transition:all 0.2s;touch-action:none}
 .verse-number:active{transform:scale(0.9)}
 .verse-number.playing{background:#0d3b2e;color:#d4af37;animation:pulse 1.2s infinite}
-.mushaf-footer{background:linear-gradient(135deg,#0d3b2e 0%,#1a6b52 100%);color:#d4af37;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;border-top:3px solid #d4af37;font-family:'Amiri',serif;font-size:0.9rem}
-.mushaf-footer-center{font-weight:bold;font-size:1rem}
-.mushaf-translation{background:white;padding:15px;margin:0;border-top:2px dashed #d4af37}
+
+.mushaf-footer{background:linear-gradient(135deg,#0d3b2e 0%,#1a6b52 100%);color:#d4af37;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-top:3px solid #d4af37;font-family:'Amiri',serif;font-size:0.9rem}
+.mushaf-footer-center{font-weight:bold;font-size:1.1rem}
+
+.mushaf-translation{background:white;padding:15px;margin-top:12px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .trans-item{margin-bottom:10px;padding:10px;background:rgba(13,59,46,0.03);border-radius:6px;border-left:3px solid #0d3b2e;font-size:0.85rem;color:#444;font-style:italic;transition:all 0.4s ease}
 .trans-item.focused{border-left:4px solid #d4af37;background:rgba(255,243,176,0.2)}
 .trans-item.audio-playing{background:linear-gradient(135deg,rgba(255,243,176,0.5),rgba(255,236,139,0.3));border-left:4px solid #d4af37;box-shadow:0 2px 10px rgba(212,175,55,0.3)}
 .trans-num{font-weight:bold;color:#0d3b2e;margin-right:6px;font-style:normal}
+
 .tajwid-mad{color:#1976d2!important}
 .tajwid-madwajib{color:#ad1457!important}
 .tajwid-madjaiz{color:#d84315!important}
@@ -167,17 +146,38 @@ header h1{font-size:1.1rem}
 .tajwid-idghammimi{color:#388e3c!important}
 .tajwid-ikhfasyafawi{color:#6a1b9a!important}
 .tajwid-madlazim{color:#009688!important}
+
 .tajwid-legend{background:white;border-radius:10px;padding:12px;margin-bottom:10px;font-size:0.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .tajwid-legend h3{color:#0d3b2e;margin-bottom:8px;font-size:0.9rem}
 .legend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
 .legend-item{display:flex;align-items:center;gap:4px}
 .legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
 .hidden{display:none!important}
 .loading{text-align:center;color:white;padding:30px}
 .spinner{border:3px solid rgba(255,255,255,0.3);border-top:3px solid #d4af37;border-radius:50%;width:32px;height:32px;animation:spin 1s linear infinite;margin:0 auto 10px}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+
+.audio-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#0d3b2e,#1a6b52);color:white;padding:10px 16px;display:flex;align-items:center;gap:10px;z-index:200;box-shadow:0 -3px 15px rgba(0,0,0,0.3);transform:translateY(100%);transition:transform 0.3s ease}
+.audio-bar.active{transform:translateY(0)}
+.audio-bar-info{flex:1;min-width:0}
+.audio-bar-title{font-weight:bold;font-size:0.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.audio-bar-sub{font-size:0.7rem;opacity:0.7}
+.audio-bar-btn{background:#d4af37;color:#0d3b2e;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.1rem;font-weight:bold;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.audio-bar-btn.next{background:#27ae60;color:white;width:36px;height:36px;font-size:1rem}
+.audio-bar-btn.stop{background:#e74c3c;color:white;width:36px;height:36px;font-size:1rem}
+
 footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px;font-size:0.75rem}
-@media(min-width:600px){.surah-list{grid-template-columns:repeat(2,1fr)}.prayer-grid{grid-template-columns:repeat(6,1fr)}.legend-grid{grid-template-columns:repeat(3,1fr)}.city-list{grid-template-columns:repeat(3,1fr)}.mushaf-text{font-size:2rem;line-height:3.2}}
+
+@media(min-width:600px){
+  .surah-list{grid-template-columns:repeat(2,1fr)}
+  .prayer-grid{grid-template-columns:repeat(6,1fr)}
+  .legend-grid{grid-template-columns:repeat(3,1fr)}
+  .city-list{grid-template-columns:repeat(3,1fr)}
+  .mushaf-text{font-size:2.2rem;line-height:3.4}
+  .mushaf-page{padding:50px 40px}
+}
 </style>
 </head>
 <body>
@@ -196,8 +196,8 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 <div class="modal-overlay" id="cityModal">
   <div class="modal">
     <div class="modal-header">
-      <h3> Pilih Lokasi</h3>
-      <button class="modal-close" onclick="closeCityModal()"></button>
+      <h3>📍 Pilih Lokasi</h3>
+      <button class="modal-close" onclick="closeCityModal()">✕</button>
     </div>
     <div class="modal-body">
       <button class="auto-detect-btn" id="autoDetectBtn" onclick="useGPS()">📡 Deteksi Otomatis Lokasi Saya</button>
@@ -215,25 +215,22 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
       <button class="modal-close" onclick="closeSettings()"></button>
     </div>
     <div class="modal-body">
-      
       <div class="setting-section">
         <div class="setting-label">📖 Mode Tampilan</div>
         <div class="setting-desc">Pilih cara menampilkan ayat Al-Qur'an</div>
         <div class="setting-options">
-          <button class="setting-btn" id="setPerAyat" onclick="setSettingView('perAyat')"> Per Ayat</button>
-          <button class="setting-btn" id="setPerHalaman" onclick="setSettingView('perHalaman')">📖 Per Halaman</button>
+          <button class="setting-btn" id="setPerAyat" onclick="setSettingView('perAyat')">📜 Per Ayat</button>
+          <button class="setting-btn" id="setPerHalaman" onclick="setSettingView('perHalaman')">📖 Per Halaman Mushaf</button>
         </div>
       </div>
-
       <div class="setting-section">
-        <div class="setting-label">🌐 Isi Tampilan</div>
+        <div class="setting-label"> Isi Tampilan</div>
         <div class="setting-desc">Pilih konten yang ditampilkan</div>
         <div class="setting-options">
           <button class="setting-btn" id="setArabicOnly" onclick="setSettingMode('arabic')">🇸🇦 Arab Saja</button>
           <button class="setting-btn" id="setWithTranslation" onclick="setSettingMode('both')">🇮🇩 Arab + Terjemah</button>
         </div>
       </div>
-
       <div class="setting-section">
         <div class="setting-label">🎨 Hukum Bacaan (Tajwid)</div>
         <div class="setting-desc">Tampilkan warna sesuai hukum tajwid</div>
@@ -242,13 +239,11 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
           <button class="setting-btn" id="setTajwidOff" onclick="setSettingTajwid(false)">❌ Nonaktif</button>
         </div>
       </div>
-
       <div class="setting-section">
-        <div class="setting-label">️ Qari Murottal</div>
+        <div class="setting-label">🎙️ Qari Murottal</div>
         <div class="setting-desc">Pilih suara qari untuk audio murottal</div>
         <div class="setting-options" id="qariOptions"></div>
       </div>
-
       <div class="setting-section">
         <div class="setting-label">🔊 Auto-play Murottal</div>
         <div class="setting-desc">Otomatis lanjut ke ayat berikutnya</div>
@@ -257,7 +252,6 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
           <button class="setting-btn" id="setAutoPlayOff" onclick="setSettingAutoPlay(false)">❌ Nonaktif</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -287,11 +281,6 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
         <div class="legend-item"><span class="legend-dot" style="background:#6a1b9a"></span><span><b>Ikhfa Syafawi</b><br><small style="color:#888">Samar di bibir</small></span></div>
         <div class="legend-item"><span class="legend-dot" style="background:#009688"></span><span><b>Mad Lazim</b><br><small style="color:#888">Mad wajib/lazim</small></span></div>
       </div>
-      <div class="setting-section" style="margin-top:15px">
-        <div class="setting-desc" style="text-align:center;font-style:italic">
-          ℹ️ Tap tombol ℹ️ Info di header untuk membuka keterangan ini kapan saja
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -308,7 +297,6 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 
 <div class="container">
   <div id="homePage">
-    
     <div class="timer-card" id="timerCard" style="display:none;">
       <div class="timer-card-header">
         <div class="timer-card-title">
@@ -327,15 +315,15 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
       </div>
       <div class="timer-status" id="timerStatus">Memuat...</div>
       <div class="timer-actions">
-        <button class="timer-btn" id="btnPlayAdhan" onclick="playAdhan()"> Putar Adzan</button>
-        <button class="timer-btn stop-adhan hidden" id="btnStopAdhan" onclick="stopAdhan()"> Stop Adzan</button>
+        <button class="timer-btn" id="btnPlayAdhan" onclick="playAdhan()">🔊 Putar Adzan</button>
+        <button class="timer-btn stop-adhan hidden" id="btnStopAdhan" onclick="stopAdhan()">⏹ Stop Adzan</button>
       </div>
     </div>
 
     <div class="prayer-card">
       <div class="prayer-header">
         <h2>🕌 Jadwal Sholat</h2>
-        <button class="change-city-btn" onclick="openCityModal()"> Ganti Kota</button>
+        <button class="change-city-btn" onclick="openCityModal()">📍 Ganti Kota</button>
       </div>
       <div class="prayer-location" id="prayerLocation">Memuat...</div>
       <div class="prayer-grid" id="prayerGrid">
@@ -355,19 +343,14 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
   <div id="detailPage" class="hidden">
     <div class="surah-detail-header" id="surahHeader"></div>
     
-    <!-- Info bar: status tajwid + tombol info -->
-    <div class="info-bar">
-      <div class="tajwid-status">
-        <span class="tajwid-dot" id="tajwidDot"></span>
-        <span id="tajwidStatusText">Tajwid: Aktif</span>
+    <!-- Navigation Mushaf -->
+    <div class="mushaf-nav" id="mushafNav" style="display:none;">
+      <button onclick="changePage(-1)" id="prevPageBtn"> Sebelumnya</button>
+      <div class="page-info">
+        <span id="currentPageNum">-</span>
+        <small>dari <span id="totalPages">-</span> halaman</small>
       </div>
-      <button class="header-btn info-btn" onclick="openInfo()" style="padding:6px 12px;font-size:0.75rem">ℹ️ Info Tajwid</button>
-    </div>
-
-    <div class="page-nav hidden" id="pageNav">
-      <button onclick="changePage(-1)">◀</button>
-      <div class="page-info"><span id="currentPageNum">-</span> / <span id="totalPages">-</span></div>
-      <button onclick="changePage(1)">▶</button>
+      <button onclick="changePage(1)" id="nextPageBtn">Selanjutnya ▶</button>
     </div>
     
     <div id="ayahContainer"></div>
@@ -562,7 +545,7 @@ function playNextAyat(){
 function forceStopAudio(){AudioPlayer.forceStop();}
 function stopAudio(){AudioPlayer.forceStop();}
 
-function toArabicNumber(num){const d=['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];return String(num).split('').map(c=>d[c]||c).join('');}
+function toArabicNumber(num){const d=['٠','١','٢','٣','٤','٥','٦','','٨','٩'];return String(num).split('').map(c=>d[c]||c).join('');}
 
 document.addEventListener('click',()=>{userInteracted=true;},{once:false});
 document.addEventListener('touchstart',()=>{userInteracted=true;},{once:false});
@@ -615,7 +598,7 @@ function updatePrayerTimer(){
     document.getElementById('timerHours').textContent=cd.h;
     document.getElementById('timerMinutes').textContent=cd.m;
     document.getElementById('timerSeconds').textContent=cd.s;
-    timerStatus.textContent=`⏰ Menuju ${nextPrayer.name}`;
+    timerStatus.textContent=` Menuju ${nextPrayer.name}`;
     timerStatus.className='timer-status';
     timerDot.className='dot';
     btnPlayAdhan.classList.remove('hidden');
@@ -685,21 +668,10 @@ function stopAdhan(){
   document.getElementById('btnStopAdhan').classList.add('hidden');
 }
 
-// ============ SETTING & INFO FUNCTIONS ============
-function openSettings(){
-  renderSettingsUI();
-  document.getElementById('settingsModal').classList.add('active');
-}
-function closeSettings(){
-  document.getElementById('settingsModal').classList.remove('active');
-}
-
-function openInfo(){
-  document.getElementById('infoModal').classList.add('active');
-}
-function closeInfo(){
-  document.getElementById('infoModal').classList.remove('active');
-}
+function openSettings(){renderSettingsUI();document.getElementById('settingsModal').classList.add('active');}
+function closeSettings(){document.getElementById('settingsModal').classList.remove('active');}
+function openInfo(){document.getElementById('infoModal').classList.add('active');}
+function closeInfo(){document.getElementById('infoModal').classList.remove('active');}
 
 function renderSettingsUI(){
   document.getElementById('setPerAyat').classList.toggle('active', userPreferences.viewMode === 'perAyat');
@@ -716,26 +688,12 @@ function renderSettingsUI(){
     <button class="setting-btn qari-btn ${userPreferences.qari === q.id ? 'active' : ''}" 
             onclick="setSettingQari('${q.id}')" 
             title="${q.desc}">
-      ️ ${q.name} <small style="opacity:0.7">(${q.desc})</small>
+      🎙️ ${q.name} <small style="opacity:0.7">(${q.desc})</small>
     </button>
   `).join('');
 }
 
-function updateTajwidStatus(){
-  const dot = document.getElementById('tajwidDot');
-  const text = document.getElementById('tajwidStatusText');
-  if(tajwidOn){
-    dot.classList.remove('off');
-    text.textContent = 'Tajwid: Aktif';
-  }else{
-    dot.classList.add('off');
-    text.textContent = 'Tajwid: Nonaktif';
-  }
-}
-
-function savePreferences(){
-  localStorage.setItem('quran_preferences', JSON.stringify(userPreferences));
-}
+function savePreferences(){localStorage.setItem('quran_preferences', JSON.stringify(userPreferences));}
 
 function setSettingView(mode){
   userPreferences.viewMode = mode;
@@ -762,7 +720,6 @@ function setSettingTajwid(on){
   savePreferences();
   tajwidOn = on;
   renderSettingsUI();
-  updateTajwidStatus();
   if(!document.getElementById('detailPage').classList.contains('hidden')){
     renderView();
   }
@@ -796,14 +753,14 @@ function closeCityModal(){document.getElementById('cityModal').classList.remove(
 function renderCityList(){document.getElementById('cityList').innerHTML=CITIES.map(c=>`<div class="city-item ${currentLocation.name===c.name?'selected':''}" onclick="selectCity('${c.name}',${c.lat},${c.lon})">${c.name}</div>`).join('');}
 function selectCity(name,lat,lon){currentLocation={name,lat,lon,source:'manual'};localStorage.setItem('quran_location',JSON.stringify(currentLocation));closeCityModal();loadPrayerTimes();}
 function useGPS(){
-  const btn=document.getElementById('autoDetectBtn');btn.classList.add('loading');btn.innerHTML=' Mendeteksi...';
-  if(!navigator.geolocation){alert('GPS tidak tersedia.');btn.classList.remove('loading');btn.innerHTML='📡 Deteksi Otomatis Lokasi Saya';return;}
+  const btn=document.getElementById('autoDetectBtn');btn.classList.add('loading');btn.innerHTML='⏳ Mendeteksi...';
+  if(!navigator.geolocation){alert('GPS tidak tersedia.');btn.classList.remove('loading');btn.innerHTML=' Deteksi Otomatis Lokasi Saya';return;}
   navigator.geolocation.getCurrentPosition(async(pos)=>{
     const{latitude,longitude}=pos.coords;let cityName='Lokasi Saya';
     try{const g=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&accept-language=id`);const d=await g.json();cityName=[d.address.city||d.address.town||d.address.village,d.address.state].filter(Boolean).join(', ')||'Lokasi Saya';}catch(e){}
     currentLocation={name:cityName,lat:latitude,lon:longitude,source:'gps'};localStorage.setItem('quran_location',JSON.stringify(currentLocation));
     btn.innerHTML='✅ Berhasil!';setTimeout(()=>{closeCityModal();loadPrayerTimes();btn.classList.remove('loading');btn.innerHTML='📡 Deteksi Otomatis Lokasi Saya';},800);
-  },()=>{btn.classList.remove('loading');btn.innerHTML='📡 Deteksi Otomatis Lokasi Saya';alert('❌ Gagal deteksi lokasi. Pilih kota manual.');});
+  },()=>{btn.classList.remove('loading');btn.innerHTML=' Deteksi Otomatis Lokasi Saya';alert('❌ Gagal deteksi lokasi. Pilih kota manual.');});
 }
 
 async function loadPrayerTimes(){
@@ -848,6 +805,7 @@ async function openSurah(nomor){
   document.getElementById('detailPage').classList.remove('hidden');
   document.getElementById('ayahContainer').innerHTML='<div class="loading"><div class="spinner"></div>Memuat surah...</div>';
   document.getElementById('surahHeader').innerHTML='';
+  document.getElementById('mushafNav').style.display='none';
   window.scrollTo(0,0);
   try{
     const res=await fetch(`https://equran.id/api/v2/surat/${nomor}`);
@@ -858,10 +816,12 @@ async function openSurah(nomor){
     if(currentSurah.ayat&&currentSurah.ayat[0]&&currentSurah.ayat[0].teksPerKata&&currentSurah.ayat[0].teksPerKata.length>0){hasT=true;tc=currentSurah.ayat[0].teksPerKata.filter(k=>k.tajwid).length;}
     tajwidSource=(hasT&&tc>0)?'api':'regex';
     document.getElementById('surahHeader').innerHTML=`<div class="arabic-name">${currentSurah.nama}</div><div class="info">${currentSurah.jumlahAyat} ayat · ${currentSurah.tempatTurun}</div>`;
+    
+    // Kelompokkan ayat berdasarkan nomor halaman mushaf
     pageNumbers=[...new Set(currentSurah.ayat.map(a=>a.nomor||1))].sort((a,b)=>a-b);
     currentPage=pageNumbers[0]||1;
     document.getElementById('totalPages').textContent=pageNumbers.length;
-    updateTajwidStatus();
+    
     renderView();
   }catch(e){document.getElementById('ayahContainer').innerHTML=`<div class="loading">Gagal memuat surah.<br><button onclick="openSurah(${nomor})" style="margin-top:10px;padding:8px 16px;background:#d4af37;color:#0d3b2e;border:none;border-radius:8px;cursor:pointer;font-weight:bold">🔄 Coba Lagi</button><br><button onclick="showHome()" style="margin-top:10px;padding:8px 16px;background:white;color:#0d3b2e;border:none;border-radius:8px;cursor:pointer;font-weight:bold">🏠 Kembali</button></div>`;}
 }
@@ -884,8 +844,13 @@ function renderArabic(ayah){
 
 function renderView(){
   if(!currentSurah)return;
-  if(currentView==='perAyat'){document.getElementById('pageNav').classList.add('hidden');renderPerAyat();}
-  else{document.getElementById('pageNav').classList.remove('hidden');renderPerHalaman();}
+  if(currentView==='perAyat'){
+    document.getElementById('mushafNav').style.display='none';
+    renderPerAyat();
+  }else{
+    document.getElementById('mushafNav').style.display='flex';
+    renderPerHalaman();
+  }
 }
 
 function renderPerAyat(){
@@ -899,30 +864,70 @@ function renderPerAyat(){
 }
 
 function renderPerHalaman(){
-  const s=currentSurah,pagesMap={};
-  s.ayat.forEach(ayah=>{const p=ayah.nomor||1;if(!pagesMap[p])pagesMap[p]=[];pagesMap[p].push(ayah);});
+  const s=currentSurah;
+  
+  // Kelompokkan ayat berdasarkan nomor halaman mushaf
+  const pagesMap={};
+  s.ayat.forEach(ayah=>{
+    const page=ayah.nomor||1; // nomor halaman mushaf
+    if(!pagesMap[page])pagesMap[page]=[];
+    pagesMap[page].push(ayah);
+  });
+  
+  // Pastikan currentPage valid
   if(!pageNumbers.includes(currentPage))currentPage=pageNumbers[0]||1;
+  
+  // Update navigation
   document.getElementById('currentPageNum').textContent=currentPage;
+  document.getElementById('totalPages').textContent=pageNumbers.length;
+  document.getElementById('prevPageBtn').disabled=(currentPage===pageNumbers[0]);
+  document.getElementById('nextPageBtn').disabled=(currentPage===pageNumbers[pageNumbers.length-1]);
+  
   const ayatDiHalaman=pagesMap[currentPage]||[];
   let html='';
-  html+=`<div class="mushaf-container">`;
-  html+=`<div class="mushaf-header"><div class="mushaf-header-left">${s.nama}</div><div class="mushaf-header-right">${s.tempatTurun}</div></div>`;
+  
+  // Wrapper mushaf
+  html+=`<div class="mushaf-wrapper">`;
   html+=`<div class="mushaf-page" id="mushafPage">`;
-  if(currentPage===pageNumbers[0]&&s.nomor!==1&&s.nomor!==9)html+=`<div class="bismillah" style="margin-bottom:20px">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>`;
+  
+  // Bismillah hanya di halaman pertama surah (kecuali Al-Fatihah & At-Taubah)
+  if(currentPage===pageNumbers[0]&&s.nomor!==1&&s.nomor!==9){
+    html+=`<div style="text-align:center;margin-bottom:30px;font-family:'Amiri Quran',serif;font-size:2.2rem;color:#0d3b2e">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>`;
+  }
+  
+  // Teks Arab dengan gaya mushaf
   html+=`<div class="mushaf-text">`;
-  ayatDiHalaman.forEach(ayah=>{
+  ayatDiHalaman.forEach((ayah,idx)=>{
     const numAr=toArabicNumber(ayah.nomorAyat);
-    html+=`<span class="mushaf-verse" data-ayat="${ayah.nomorAyat}" onclick="highlightVerse(this,${ayah.nomorAyat})">${renderArabic(ayah)}</span> <span class="verse-number" data-play-ayat="${ayah.nomorAyat}" onclick="event.stopPropagation();playAyatAudio(${s.nomor},${ayah.nomorAyat},this)">${numAr}</span> `;
+    html+=`<span class="mushaf-verse" data-ayat="${ayah.nomorAyat}" onclick="highlightVerse(this,${ayah.nomorAyat})">${renderArabic(ayah)}</span>`;
+    html+=` <span class="verse-number" data-play-ayat="${ayah.nomorAyat}" onclick="event.stopPropagation();playAyatAudio(${s.nomor},${ayah.nomorAyat},this)">${numAr}</span> `;
   });
-  html+=`</div></div>`;
-  html+=`<div class="mushaf-footer"><div>﴿ ${s.nama} ﴾</div><div class="mushaf-footer-center">${currentPage}</div><div>${s.tempatTurun}</div></div>`;
   html+=`</div>`;
+  html+=`</div>`; // end mushaf-page
+  
+  // Footer mushaf
+  html+=`<div class="mushaf-footer">`;
+  html+=`<div>﴿ ${s.nama} </div>`;
+  html+=`<div class="mushaf-footer-center">${currentPage}</div>`;
+  html+=`<div>${s.tempatTurun}</div>`;
+  html+=`</div>`;
+  html+=`</div>`; // end mushaf-wrapper
+  
+  // Terjemahan
   html+=`<div class="mushaf-translation translation-block">`;
-  ayatDiHalaman.forEach(ayah=>{html+=`<div class="trans-item" id="trans-${ayah.nomorAyat}"><span class="trans-num">[${ayah.nomorAyat}]</span>${ayah.teksIndonesia}</div>`;});
+  ayatDiHalaman.forEach(ayah=>{
+    html+=`<div class="trans-item" id="trans-${ayah.nomorAyat}"><span class="trans-num">[${ayah.nomorAyat}]</span>${ayah.teksIndonesia}</div>`;
+  });
   html+=`</div>`;
-  document.getElementById('ayahContainer').innerHTML=html;applyMode();
+  
+  document.getElementById('ayahContainer').innerHTML=html;
+  applyMode();
   initSwipeOnMushaf();
-  if(AudioPlayer.state==='playing'||AudioPlayer.state==='paused'){setTimeout(()=>AudioPlayer.highlightCurrentAyat(),200);}
+  
+  // Re-highlight jika audio sedang berjalan
+  if(AudioPlayer.state==='playing'||AudioPlayer.state==='paused'){
+    setTimeout(()=>AudioPlayer.highlightCurrentAyat(),200);
+  }
 }
 
 function highlightVerse(element,ayatNumber){
@@ -935,7 +940,15 @@ function highlightVerse(element,ayatNumber){
   if(t&&currentMode==='both'){if(!t.classList.contains('audio-playing')){t.scrollIntoView({behavior:'smooth',block:'nearest'});}t.classList.add('focused');}
 }
 
-function changePage(delta){const idx=pageNumbers.indexOf(currentPage),ni=idx+delta;if(ni>=0&&ni<pageNumbers.length){currentPage=pageNumbers[ni];renderPerHalaman();window.scrollTo({top:0,behavior:'smooth'});}}
+function changePage(delta){
+  const idx=pageNumbers.indexOf(currentPage);
+  const newIdx=idx+delta;
+  if(newIdx>=0&&newIdx<pageNumbers.length){
+    currentPage=pageNumbers[newIdx];
+    renderPerHalaman();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
 
 let touchStartX=0,touchStartY=0,touchStartTime=0;
 function initSwipeOnMushaf(){
