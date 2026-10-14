@@ -20,11 +20,13 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#0d3b2e 0%,#1a6b52 100%);min-height:100vh;color:#333;overflow-x:hidden}
 header{background:rgba(0,0,0,0.4);color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
 header h1{font-size:1.1rem}
-.header-btn{background:#d4af37;color:#0d3b2e;border:none;padding:8px 14px;border-radius:20px;font-weight:bold;font-size:0.85rem;cursor:pointer;margin-left:6px}
-.header-btn.settings-btn{background:#3498db;color:white}
+.header-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.header-btn{background:#d4af37;color:#0d3b2e;border:none;padding:8px 12px;border-radius:20px;font-weight:bold;font-size:0.8rem;cursor:pointer;display:flex;align-items:center;gap:4px}
+.header-btn.settings-btn{background:#3498db;color:white;padding:8px 14px}
+.header-btn.info-btn{background:#9b59b6;color:white;padding:8px 14px}
+.header-btn.install-btn{background:#27ae60;color:white}
 .container{max-width:1000px;margin:0 auto;padding:12px}
 
-/* ============ TIMER SHOLAT ============ */
 .timer-card{background:linear-gradient(135deg,#1a4d3d 0%,#0d3b2e 100%);border-radius:15px;padding:20px;margin-bottom:12px;box-shadow:0 5px 20px rgba(0,0,0,0.3);color:white;position:relative;overflow:hidden;border:2px solid #d4af37}
 .timer-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .timer-card-title{font-size:0.85rem;opacity:0.9;display:flex;align-items:center;gap:6px}
@@ -58,7 +60,6 @@ header h1{font-size:1.1rem}
 .prayer-item .name{font-size:0.7rem;opacity:0.9}
 .prayer-item .time{font-size:0.95rem;font-weight:bold;margin-top:2px}
 
-/* ============ MODAL (Kota & Setting) ============ */
 .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:1000;justify-content:center;align-items:center;padding:20px}
 .modal-overlay.active{display:flex}
 .modal{background:white;border-radius:15px;max-width:420px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
@@ -77,14 +78,16 @@ header h1{font-size:1.1rem}
 .city-item:active{transform:scale(0.95)}
 .city-item.selected{background:#0d3b2e;color:white;border-color:#d4af37}
 
-/* ============ SETTING SECTION ============ */
 .setting-section{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid #eee}
 .setting-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .setting-label{font-weight:bold;color:#0d3b2e;margin-bottom:10px;font-size:0.9rem;display:flex;align-items:center;gap:6px}
+.setting-desc{font-size:0.75rem;color:#888;margin-bottom:8px;font-weight:normal}
 .setting-options{display:flex;gap:8px;flex-wrap:wrap}
-.setting-btn{padding:8px 14px;border:2px solid #0d3b2e;background:white;color:#0d3b2e;border-radius:20px;cursor:pointer;font-size:0.8rem;font-weight:600;flex:1;min-width:100px;text-align:center;transition:all 0.2s}
-.setting-btn.active{background:#0d3b2e;color:white}
+.setting-btn{padding:10px 14px;border:2px solid #0d3b2e;background:white;color:#0d3b2e;border-radius:20px;cursor:pointer;font-size:0.85rem;font-weight:600;flex:1;min-width:100px;text-align:center;transition:all 0.2s}
+.setting-btn.active{background:#0d3b2e;color:white;box-shadow:0 2px 8px rgba(13,59,46,0.3)}
 .setting-btn:active{transform:scale(0.95)}
+.setting-btn.qari-btn{min-width:100%;text-align:left;padding:10px 14px;font-size:0.8rem}
+.setting-btn.qari-btn.active{background:#0d3b2e;color:white}
 
 .surah-header-bar{background:white;border-radius:12px;padding:12px;margin-bottom:12px;display:flex;gap:8px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .surah-header-bar strong{color:#0d3b2e;font-size:0.9rem;flex:1}
@@ -99,9 +102,13 @@ header h1{font-size:1.1rem}
 .surah-detail-header{background:white;border-radius:12px;padding:20px;text-align:center;margin-bottom:12px;box-shadow:0 3px 12px rgba(0,0,0,0.15)}
 .surah-detail-header .arabic-name{font-family:'Amiri',serif;font-size:2.2rem;color:#0d3b2e;margin-bottom:6px}
 .surah-detail-header .info{color:#666;font-size:0.85rem;margin-top:6px}
-.controls{background:white;border-radius:10px;padding:10px;margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.ctrl-btn{padding:6px 12px;border:2px solid #0d3b2e;background:white;color:#0d3b2e;border-radius:16px;font-size:0.75rem;cursor:pointer;font-weight:600}
-.ctrl-btn.active{background:#0d3b2e;color:white}
+
+/* Info bar di detail surah - menampilkan status tajwid */
+.info-bar{background:white;border-radius:10px;padding:8px 12px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);font-size:0.8rem}
+.info-bar .tajwid-status{display:flex;align-items:center;gap:6px;color:#0d3b2e;font-weight:600}
+.info-bar .tajwid-dot{width:10px;height:10px;border-radius:50%;background:#27ae60}
+.info-bar .tajwid-dot.off{background:#95a5a6}
+
 .page-nav{background:white;border-radius:10px;padding:10px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .page-nav button{background:#0d3b2e;color:white;border:none;padding:8px 14px;border-radius:16px;font-weight:bold;font-size:0.8rem}
 .page-nav button:disabled{background:#ccc}
@@ -177,9 +184,10 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 
 <header>
   <h1>📖 Al-Qur'an</h1>
-  <div style="display:flex;gap:8px;align-items:center;">
-    <button class="header-btn settings-btn" id="settingsBtn" onclick="openSettings()">⚙️</button>
-    <button class="header-btn" id="installBtn" onclick="installPWA()" style="display:none;background:#27ae60;color:white;">📥</button>
+  <div class="header-actions">
+    <button class="header-btn info-btn" id="infoBtn" onclick="openInfo()" title="Info Tajwid">ℹ️ Info</button>
+    <button class="header-btn settings-btn" id="settingsBtn" onclick="openSettings()" title="Pengaturan">⚙️ Setting</button>
+    <button class="header-btn install-btn" id="installBtn" onclick="installPWA()" style="display:none;">📥</button>
     <button class="header-btn" onclick="showHome()">🏠</button>
   </div>
 </header>
@@ -188,8 +196,8 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 <div class="modal-overlay" id="cityModal">
   <div class="modal">
     <div class="modal-header">
-      <h3>📍 Pilih Lokasi</h3>
-      <button class="modal-close" onclick="closeCityModal()">✕</button>
+      <h3> Pilih Lokasi</h3>
+      <button class="modal-close" onclick="closeCityModal()"></button>
     </div>
     <div class="modal-body">
       <button class="auto-detect-btn" id="autoDetectBtn" onclick="useGPS()">📡 Deteksi Otomatis Lokasi Saya</button>
@@ -203,50 +211,87 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 <div class="modal-overlay" id="settingsModal">
   <div class="modal">
     <div class="modal-header">
-      <h3>⚙️ Pengaturan</h3>
-      <button class="modal-close" onclick="closeSettings()">✕</button>
+      <h3>⚙️ Pengaturan Tampilan</h3>
+      <button class="modal-close" onclick="closeSettings()"></button>
     </div>
     <div class="modal-body">
       
       <div class="setting-section">
-        <div class="setting-label"> Mode Tampilan</div>
+        <div class="setting-label">📖 Mode Tampilan</div>
+        <div class="setting-desc">Pilih cara menampilkan ayat Al-Qur'an</div>
         <div class="setting-options">
-          <button class="setting-btn" id="setPerAyat" onclick="setSettingView('perAyat')">Per Ayat</button>
-          <button class="setting-btn" id="setPerHalaman" onclick="setSettingView('perHalaman')">Per Halaman</button>
+          <button class="setting-btn" id="setPerAyat" onclick="setSettingView('perAyat')"> Per Ayat</button>
+          <button class="setting-btn" id="setPerHalaman" onclick="setSettingView('perHalaman')">📖 Per Halaman</button>
         </div>
       </div>
 
       <div class="setting-section">
         <div class="setting-label">🌐 Isi Tampilan</div>
+        <div class="setting-desc">Pilih konten yang ditampilkan</div>
         <div class="setting-options">
-          <button class="setting-btn" id="setArabicOnly" onclick="setSettingMode('arabic')">Arab Saja</button>
-          <button class="setting-btn" id="setWithTranslation" onclick="setSettingMode('both')">Arab + Terjemah</button>
+          <button class="setting-btn" id="setArabicOnly" onclick="setSettingMode('arabic')">🇸🇦 Arab Saja</button>
+          <button class="setting-btn" id="setWithTranslation" onclick="setSettingMode('both')">🇮🇩 Arab + Terjemah</button>
         </div>
       </div>
 
       <div class="setting-section">
         <div class="setting-label">🎨 Hukum Bacaan (Tajwid)</div>
+        <div class="setting-desc">Tampilkan warna sesuai hukum tajwid</div>
         <div class="setting-options">
-          <button class="setting-btn" id="setTajwidOn" onclick="setSettingTajwid(true)">Aktif</button>
-          <button class="setting-btn" id="setTajwidOff" onclick="setSettingTajwid(false)">Nonaktif</button>
+          <button class="setting-btn" id="setTajwidOn" onclick="setSettingTajwid(true)">✅ Aktif</button>
+          <button class="setting-btn" id="setTajwidOff" onclick="setSettingTajwid(false)">❌ Nonaktif</button>
         </div>
       </div>
 
       <div class="setting-section">
-        <div class="setting-label">🎙️ Qari Murottal</div>
-        <div class="setting-options" id="qariOptions">
-          <!-- Diisi oleh JavaScript -->
-        </div>
+        <div class="setting-label">️ Qari Murottal</div>
+        <div class="setting-desc">Pilih suara qari untuk audio murottal</div>
+        <div class="setting-options" id="qariOptions"></div>
       </div>
 
       <div class="setting-section">
-        <div class="setting-label"> Auto-play Murottal</div>
+        <div class="setting-label">🔊 Auto-play Murottal</div>
+        <div class="setting-desc">Otomatis lanjut ke ayat berikutnya</div>
         <div class="setting-options">
-          <button class="setting-btn" id="setAutoPlayOn" onclick="setSettingAutoPlay(true)">Aktif</button>
-          <button class="setting-btn" id="setAutoPlayOff" onclick="setSettingAutoPlay(false)">Nonaktif</button>
+          <button class="setting-btn" id="setAutoPlayOn" onclick="setSettingAutoPlay(true)">✅ Aktif</button>
+          <button class="setting-btn" id="setAutoPlayOff" onclick="setSettingAutoPlay(false)">❌ Nonaktif</button>
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- Modal Info Tajwid -->
+<div class="modal-overlay" id="infoModal">
+  <div class="modal">
+    <div class="modal-header" style="background:linear-gradient(135deg,#9b59b6,#8e44ad)">
+      <h3>ℹ️ Keterangan Warna Tajwid</h3>
+      <button class="modal-close" onclick="closeInfo()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="setting-section">
+        <div class="setting-desc">Berikut adalah warna yang digunakan untuk menandai hukum bacaan dalam Al-Qur'an:</div>
+      </div>
+      <div class="legend-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="legend-item"><span class="legend-dot" style="background:#1976d2"></span><span><b>Mad Thabi'i</b><br><small style="color:#888">Mad biasa</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#ad1457"></span><span><b>Mad Wajib</b><br><small style="color:#888">Mad Wajib Muttashil</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#d84315"></span><span><b>Mad Jaiz</b><br><small style="color:#888">Mad Jaiz Munfasil</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#2e7d32"></span><span><b>Idgham Bighunnah</b><br><small style="color:#888">Dengan dengung</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#00838f"></span><span><b>Idgham Bilaghunnah</b><br><small style="color:#888">Tanpa dengung</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#7b1fa2"></span><span><b>Ikhfa</b><br><small style="color:#888">Samar</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#e65100"></span><span><b>Iqlab</b><br><small style="color:#888">Membalik bunyi</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#c62828"></span><span><b>Qalqalah</b><br><small style="color:#888">Memantul</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#f57c00"></span><span><b>Ghunnah</b><br><small style="color:#888">Dengung</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#388e3c"></span><span><b>Idgham Mimi</b><br><small style="color:#888">Idgham Mutamasilain</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#6a1b9a"></span><span><b>Ikhfa Syafawi</b><br><small style="color:#888">Samar di bibir</small></span></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#009688"></span><span><b>Mad Lazim</b><br><small style="color:#888">Mad wajib/lazim</small></span></div>
+      </div>
+      <div class="setting-section" style="margin-top:15px">
+        <div class="setting-desc" style="text-align:center;font-style:italic">
+          ℹ️ Tap tombol ℹ️ Info di header untuk membuka keterangan ini kapan saja
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -264,7 +309,6 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 <div class="container">
   <div id="homePage">
     
-    <!-- Timer Sholat -->
     <div class="timer-card" id="timerCard" style="display:none;">
       <div class="timer-card-header">
         <div class="timer-card-title">
@@ -283,15 +327,15 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
       </div>
       <div class="timer-status" id="timerStatus">Memuat...</div>
       <div class="timer-actions">
-        <button class="timer-btn" id="btnPlayAdhan" onclick="playAdhan()">🔊 Putar Adzan</button>
-        <button class="timer-btn stop-adhan hidden" id="btnStopAdhan" onclick="stopAdhan()">⏹ Stop Adzan</button>
+        <button class="timer-btn" id="btnPlayAdhan" onclick="playAdhan()"> Putar Adzan</button>
+        <button class="timer-btn stop-adhan hidden" id="btnStopAdhan" onclick="stopAdhan()"> Stop Adzan</button>
       </div>
     </div>
 
     <div class="prayer-card">
       <div class="prayer-header">
         <h2>🕌 Jadwal Sholat</h2>
-        <button class="change-city-btn" onclick="openCityModal()">📍 Ganti Kota</button>
+        <button class="change-city-btn" onclick="openCityModal()"> Ganti Kota</button>
       </div>
       <div class="prayer-location" id="prayerLocation">Memuat...</div>
       <div class="prayer-grid" id="prayerGrid">
@@ -310,35 +354,22 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 
   <div id="detailPage" class="hidden">
     <div class="surah-detail-header" id="surahHeader"></div>
-    <div class="controls">
-      <button class="ctrl-btn active" id="btnPerAyat" onclick="setView('perAyat')">Per Ayat</button>
-      <button class="ctrl-btn" id="btnPerHalaman" onclick="setView('perHalaman')">Per Halaman</button>
-      <button class="ctrl-btn active" id="btnBoth" onclick="setMode('both')">Arab + Terjemah</button>
-      <button class="ctrl-btn" id="btnArab" onclick="setMode('arabic')">Arab Saja</button>
-      <button class="ctrl-btn active" id="btnTajwid" onclick="toggleTajwid()">🎨 Tajwid</button>
+    
+    <!-- Info bar: status tajwid + tombol info -->
+    <div class="info-bar">
+      <div class="tajwid-status">
+        <span class="tajwid-dot" id="tajwidDot"></span>
+        <span id="tajwidStatusText">Tajwid: Aktif</span>
+      </div>
+      <button class="header-btn info-btn" onclick="openInfo()" style="padding:6px 12px;font-size:0.75rem">ℹ️ Info Tajwid</button>
     </div>
+
     <div class="page-nav hidden" id="pageNav">
       <button onclick="changePage(-1)">◀</button>
       <div class="page-info"><span id="currentPageNum">-</span> / <span id="totalPages">-</span></div>
       <button onclick="changePage(1)">▶</button>
     </div>
-    <div class="tajwid-legend" id="tajwidLegend">
-      <h3>Warna Tajwid</h3>
-      <div class="legend-grid">
-        <div class="legend-item"><span class="legend-dot" style="background:#1976d2"></span>Mad</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#ad1457"></span>Mad Wajib</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#d84315"></span>Mad Jaiz</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#2e7d32"></span>Idgham Bighunnah</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#00838f"></span>Idgham Bilaghunnah</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#7b1fa2"></span>Ikhfa</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#e65100"></span>Iqlab</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#c62828"></span>Qalqalah</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#f57c00"></span>Ghunnah</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#388e3c"></span>Idgham Mimi</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#6a1b9a"></span>Ikhfa Syafawi</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#009688"></span>Mad Lazim</div>
-      </div>
-    </div>
+    
     <div id="ayahContainer"></div>
   </div>
 </div>
@@ -348,7 +379,6 @@ footer{text-align:center;color:rgba(255,255,255,0.7);padding:16px 16px 70px 16px
 <script>
 const CITIES=[{name:'Jakarta',lat:-6.2088,lon:106.8456},{name:'Surabaya',lat:-7.2575,lon:112.7521},{name:'Bandung',lat:-6.9175,lon:107.6191},{name:'Medan',lat:3.5952,lon:98.6722},{name:'Semarang',lat:-6.9667,lon:110.4196},{name:'Makassar',lat:-5.1477,lon:119.4327},{name:'Palembang',lat:-2.9761,lon:104.7754},{name:'Depok',lat:-6.4025,lon:106.7942},{name:'Bekasi',lat:-6.2383,lon:106.9756},{name:'Tangerang',lat:-6.1783,lon:106.6319},{name:'Bogor',lat:-6.5971,lon:106.8060},{name:'Yogyakarta',lat:-7.7956,lon:110.3695},{name:'Denpasar',lat:-8.6500,lon:115.2167},{name:'Malang',lat:-7.9666,lon:112.6326},{name:'Solo',lat:-7.5755,lon:110.8243},{name:'Balikpapan',lat:-1.2654,lon:116.8312},{name:'Banjarmasin',lat:-3.3194,lon:114.5907},{name:'Pontianak',lat:-0.0263,lon:109.3425},{name:'Padang',lat:-0.9493,lon:100.3543},{name:'Pekanbaru',lat:0.5071,lon:101.4478},{name:'Manado',lat:1.4748,lon:124.8421},{name:'Jambi',lat:-1.6101,lon:103.6128},{name:'Bandar Lampung',lat:-5.3971,lon:105.2667},{name:'Jayapura',lat:-2.5916,lon:140.6690},{name:'Ambon',lat:-3.6954,lon:128.1814},{name:'Kupang',lat:-10.1772,lon:123.6070},{name:'Mataram',lat:-8.5833,lon:116.1167},{name:'Banda Aceh',lat:5.5483,lon:95.3238},{name:'Samarinda',lat:-0.4948,lon:117.1436},{name:'Cirebon',lat:-6.7320,lon:108.5523}];
 
-// ============ DAFTAR QARI MUROTTAL ============
 const QARI_LIST = [
   { id: 'Alafasy_128kbps', name: 'Misyari Al-Afasy', desc: '128 kbps' },
   { id: 'Husary_128kbps', name: 'Mahmoud Khalil Al-Husary', desc: '128 kbps' },
@@ -385,7 +415,6 @@ let surahList=[],currentMode='both',currentView='perAyat',tajwidOn=true;
 let currentSurah=null,currentPage=1,pageNumbers=[],tajwidSource='';
 let currentLocation=JSON.parse(localStorage.getItem('quran_location'))||{name:'Jakarta',lat:-6.2088,lon:106.8456,source:'manual'};
 
-// ============ USER PREFERENCES (dari localStorage) ============
 let userPreferences = JSON.parse(localStorage.getItem('quran_preferences')) || {
   viewMode: 'perAyat',
   displayMode: 'both',
@@ -394,7 +423,6 @@ let userPreferences = JSON.parse(localStorage.getItem('quran_preferences')) || {
   autoPlay: true
 };
 
-// Terapkan preferensi saat load
 currentView = userPreferences.viewMode || 'perAyat';
 currentMode = userPreferences.displayMode || 'both';
 tajwidOn = userPreferences.tajwid !== false;
@@ -406,7 +434,6 @@ let adhanAudio=null;
 let adhanPlayedToday={};
 let userInteracted=false;
 
-// ============ AUDIO PLAYER ============
 const AudioPlayer={
   element:null,state:'idle',currentSurah:0,currentAyat:0,currentBtn:null,transitionLock:false,isStopping:false,
   init(){
@@ -421,7 +448,6 @@ const AudioPlayer={
     this.element.addEventListener('canplay',this._onCanPlay);
   },
   getUrl(surahNum,ayatNum){
-    // Gunakan qari dari preferensi user
     const qari = userPreferences.qari || 'Alafasy_128kbps';
     return `https://everyayah.com/data/${qari}/${String(surahNum).padStart(3,'0')}${String(ayatNum).padStart(3,'0')}.mp3`;
   },
@@ -467,7 +493,7 @@ const AudioPlayer={
     if(btnElement)btnElement.classList.add('playing');
     document.getElementById('audioBarTitle').textContent=`${currentSurah?.nama||'Surah'} - Ayat ${ayatNum}`;
     document.getElementById('audioBarSub').textContent=this.getQariName();
-    document.getElementById('audioBarPlayBtn').textContent='';
+    document.getElementById('audioBarPlayBtn').textContent='⏸';
     document.getElementById('audioBar').classList.add('active');
     this.element.src=this.getUrl(surahNum,ayatNum);
     this.element.load();
@@ -536,9 +562,8 @@ function playNextAyat(){
 function forceStopAudio(){AudioPlayer.forceStop();}
 function stopAudio(){AudioPlayer.forceStop();}
 
-function toArabicNumber(num){const d=['٠','١','٢','٣','٤','٥','٦','٧','٨',''];return String(num).split('').map(c=>d[c]||c).join('');}
+function toArabicNumber(num){const d=['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];return String(num).split('').map(c=>d[c]||c).join('');}
 
-// ============ TIMER & ADHAN ============
 document.addEventListener('click',()=>{userInteracted=true;},{once:false});
 document.addEventListener('touchstart',()=>{userInteracted=true;},{once:false});
 
@@ -549,12 +574,11 @@ function parseTimeToMinutes(timeStr){
 }
 
 function formatCountdown(totalSeconds){
-  const isNegative=totalSeconds<0;
   const absSeconds=Math.abs(totalSeconds);
   const h=Math.floor(absSeconds/3600);
   const m=Math.floor((absSeconds%3600)/60);
   const s=absSeconds%60;
-  return {h:String(h).padStart(2,'0'),m:String(m).padStart(2,'0'),s:String(s).padStart(2,'0'),negative:isNegative};
+  return {h:String(h).padStart(2,'0'),m:String(m).padStart(2,'0'),s:String(s).padStart(2,'0')};
 }
 
 function updatePrayerTimer(){
@@ -565,11 +589,11 @@ function updatePrayerTimer(){
   const lastDay=localStorage.getItem('adhan_last_day');
   if(lastDay!==todayKey){adhanPlayedToday={};localStorage.setItem('adhan_last_day',todayKey);}
   
-  let nextPrayer=null,prevPrayer=null;
+  let nextPrayer=null;
   for(let i=0;i<prayerMinutesList.length;i++){
-    if(currentMinutes<prayerMinutesList[i].minutes){nextPrayer=prayerMinutesList[i];prevPrayer=i>0?prayerMinutesList[i-1]:null;break;}
+    if(currentMinutes<prayerMinutesList[i].minutes){nextPrayer=prayerMinutesList[i];break;}
   }
-  if(!nextPrayer){nextPrayer=prayerMinutesList[0];prevPrayer=prayerMinutesList[prayerMinutesList.length-1];}
+  if(!nextPrayer)nextPrayer=prayerMinutesList[0];
   
   const diffSeconds=Math.round((nextPrayer.minutes-currentMinutes)*60);
   document.getElementById('timerCard').style.display='block';
@@ -601,7 +625,7 @@ function updatePrayerTimer(){
     document.getElementById('timerHours').textContent='00';
     document.getElementById('timerMinutes').textContent=cd.m;
     document.getElementById('timerSeconds').textContent=cd.s;
-    timerStatus.textContent=`️ ${Math.ceil(diffSeconds/60)} menit lagi ${nextPrayer.name}`;
+    timerStatus.textContent=`⚠️ ${Math.ceil(diffSeconds/60)} menit lagi ${nextPrayer.name}`;
     timerStatus.className='timer-status approaching';
     timerDot.className='dot';
     btnPlayAdhan.classList.remove('hidden');
@@ -612,7 +636,7 @@ function updatePrayerTimer(){
     document.getElementById('timerHours').textContent='00';
     document.getElementById('timerMinutes').textContent=cd.m;
     document.getElementById('timerSeconds').textContent=cd.s;
-    if(elapsed<60){timerStatus.textContent=` WAKTU ${nextPrayer.name.toUpperCase()} - Adzan Berkumandang`;timerStatus.className='timer-status adhan-time';timerDot.className='dot adhan';}
+    if(elapsed<60){timerStatus.textContent=`🕌 WAKTU ${nextPrayer.name.toUpperCase()} - Adzan Berkumandang`;timerStatus.className='timer-status adhan-time';timerDot.className='dot adhan';}
     else{timerStatus.textContent=`✅ Waktu ${nextPrayer.name} (${Math.floor(elapsed/60)} menit lalu)`;timerStatus.className='timer-status after';timerDot.className='dot';}
     const adhanKey=nextPrayer.key;
     if(!adhanPlayedToday[adhanKey]&&elapsed<5&&userInteracted){playAdhan();adhanPlayedToday[adhanKey]=true;}
@@ -623,7 +647,7 @@ function updatePrayerTimer(){
     document.getElementById('timerHours').textContent=cd.h;
     document.getElementById('timerMinutes').textContent=cd.m;
     document.getElementById('timerSeconds').textContent=cd.s;
-    timerStatus.textContent=`⏰ Menuju ${nextPrayer.name}`;
+    timerStatus.textContent=` Menuju ${nextPrayer.name}`;
     timerStatus.className='timer-status';
     timerDot.className='dot';
     btnPlayAdhan.classList.remove('hidden');
@@ -641,7 +665,7 @@ function playAdhan(){
   const adhanSources=['https://www.islamcan.com/audio/adhan/azan1.mp3','https://download.qurancentral.com/audio/adhan/makkah.mp3'];
   let sourceIndex=0;
   function tryNextSource(){
-    if(sourceIndex>=adhanSources.length){alert('️ Tidak dapat memutar adzan. Periksa koneksi internet.');return;}
+    if(sourceIndex>=adhanSources.length){alert('⚠️ Tidak dapat memutar adzan. Periksa koneksi internet.');return;}
     adhanAudio.src=adhanSources[sourceIndex];
     adhanAudio.play().then(()=>{
       document.getElementById('btnPlayAdhan').classList.add('playing');
@@ -661,42 +685,52 @@ function stopAdhan(){
   document.getElementById('btnStopAdhan').classList.add('hidden');
 }
 
-// ============ SETTING FUNCTIONS ============
+// ============ SETTING & INFO FUNCTIONS ============
 function openSettings(){
   renderSettingsUI();
   document.getElementById('settingsModal').classList.add('active');
 }
-
 function closeSettings(){
   document.getElementById('settingsModal').classList.remove('active');
 }
 
+function openInfo(){
+  document.getElementById('infoModal').classList.add('active');
+}
+function closeInfo(){
+  document.getElementById('infoModal').classList.remove('active');
+}
+
 function renderSettingsUI(){
-  // Update tombol mode tampilan
   document.getElementById('setPerAyat').classList.toggle('active', userPreferences.viewMode === 'perAyat');
   document.getElementById('setPerHalaman').classList.toggle('active', userPreferences.viewMode === 'perHalaman');
-  
-  // Update tombol isi tampilan
   document.getElementById('setArabicOnly').classList.toggle('active', userPreferences.displayMode === 'arabic');
   document.getElementById('setWithTranslation').classList.toggle('active', userPreferences.displayMode === 'both');
-  
-  // Update tombol tajwid
   document.getElementById('setTajwidOn').classList.toggle('active', userPreferences.tajwid === true);
   document.getElementById('setTajwidOff').classList.toggle('active', userPreferences.tajwid === false);
-  
-  // Update tombol auto-play
   document.getElementById('setAutoPlayOn').classList.toggle('active', userPreferences.autoPlay === true);
   document.getElementById('setAutoPlayOff').classList.toggle('active', userPreferences.autoPlay === false);
   
-  // Render pilihan qari
   const qariContainer = document.getElementById('qariOptions');
   qariContainer.innerHTML = QARI_LIST.map(q => `
-    <button class="setting-btn ${userPreferences.qari === q.id ? 'active' : ''}" 
+    <button class="setting-btn qari-btn ${userPreferences.qari === q.id ? 'active' : ''}" 
             onclick="setSettingQari('${q.id}')" 
             title="${q.desc}">
-      ${q.name}
+      ️ ${q.name} <small style="opacity:0.7">(${q.desc})</small>
     </button>
   `).join('');
+}
+
+function updateTajwidStatus(){
+  const dot = document.getElementById('tajwidDot');
+  const text = document.getElementById('tajwidStatusText');
+  if(tajwidOn){
+    dot.classList.remove('off');
+    text.textContent = 'Tajwid: Aktif';
+  }else{
+    dot.classList.add('off');
+    text.textContent = 'Tajwid: Nonaktif';
+  }
 }
 
 function savePreferences(){
@@ -708,10 +742,7 @@ function setSettingView(mode){
   savePreferences();
   currentView = mode;
   renderSettingsUI();
-  // Terapkan ke UI jika sedang di halaman detail
   if(!document.getElementById('detailPage').classList.contains('hidden')){
-    document.getElementById('btnPerAyat').classList.toggle('active', mode === 'perAyat');
-    document.getElementById('btnPerHalaman').classList.toggle('active', mode === 'perHalaman');
     renderView();
   }
 }
@@ -722,8 +753,6 @@ function setSettingMode(mode){
   currentMode = mode;
   renderSettingsUI();
   if(!document.getElementById('detailPage').classList.contains('hidden')){
-    document.getElementById('btnBoth').classList.toggle('active', mode === 'both');
-    document.getElementById('btnArab').classList.toggle('active', mode === 'arabic');
     applyMode();
   }
 }
@@ -733,9 +762,8 @@ function setSettingTajwid(on){
   savePreferences();
   tajwidOn = on;
   renderSettingsUI();
+  updateTajwidStatus();
   if(!document.getElementById('detailPage').classList.contains('hidden')){
-    document.getElementById('btnTajwid').classList.toggle('active', on);
-    document.getElementById('tajwidLegend').classList.toggle('hidden', !on);
     renderView();
   }
 }
@@ -744,7 +772,6 @@ function setSettingQari(qariId){
   userPreferences.qari = qariId;
   savePreferences();
   renderSettingsUI();
-  // Jika audio sedang diputar, restart dengan qari baru
   if(AudioPlayer.state === 'playing' || AudioPlayer.state === 'paused'){
     const currentAyat = AudioPlayer.currentAyat;
     const currentSurahNum = AudioPlayer.currentSurah;
@@ -764,7 +791,6 @@ function setSettingAutoPlay(on){
   renderSettingsUI();
 }
 
-// ============ CITY & GPS ============
 function openCityModal(){renderCityList();document.getElementById('cityModal').classList.add('active');}
 function closeCityModal(){document.getElementById('cityModal').classList.remove('active');}
 function renderCityList(){document.getElementById('cityList').innerHTML=CITIES.map(c=>`<div class="city-item ${currentLocation.name===c.name?'selected':''}" onclick="selectCity('${c.name}',${c.lat},${c.lon})">${c.name}</div>`).join('');}
@@ -777,7 +803,7 @@ function useGPS(){
     try{const g=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&accept-language=id`);const d=await g.json();cityName=[d.address.city||d.address.town||d.address.village,d.address.state].filter(Boolean).join(', ')||'Lokasi Saya';}catch(e){}
     currentLocation={name:cityName,lat:latitude,lon:longitude,source:'gps'};localStorage.setItem('quran_location',JSON.stringify(currentLocation));
     btn.innerHTML='✅ Berhasil!';setTimeout(()=>{closeCityModal();loadPrayerTimes();btn.classList.remove('loading');btn.innerHTML='📡 Deteksi Otomatis Lokasi Saya';},800);
-  },()=>{btn.classList.remove('loading');btn.innerHTML=' Deteksi Otomatis Lokasi Saya';alert('❌ Gagal deteksi lokasi. Pilih kota manual.');});
+  },()=>{btn.classList.remove('loading');btn.innerHTML='📡 Deteksi Otomatis Lokasi Saya';alert('❌ Gagal deteksi lokasi. Pilih kota manual.');});
 }
 
 async function loadPrayerTimes(){
@@ -835,8 +861,9 @@ async function openSurah(nomor){
     pageNumbers=[...new Set(currentSurah.ayat.map(a=>a.nomor||1))].sort((a,b)=>a-b);
     currentPage=pageNumbers[0]||1;
     document.getElementById('totalPages').textContent=pageNumbers.length;
+    updateTajwidStatus();
     renderView();
-  }catch(e){document.getElementById('ayahContainer').innerHTML=`<div class="loading">Gagal memuat surah.<br><button onclick="openSurah(${nomor})" style="margin-top:10px;padding:8px 16px;background:#d4af37;color:#0d3b2e;border:none;border-radius:8px;cursor:pointer;font-weight:bold">🔄 Coba Lagi</button><br><button onclick="showHome()" style="margin-top:10px;padding:8px 16px;background:white;color:#0d3b2e;border:none;border-radius:8px;cursor:pointer;font-weight:bold"> Kembali</button></div>`;}
+  }catch(e){document.getElementById('ayahContainer').innerHTML=`<div class="loading">Gagal memuat surah.<br><button onclick="openSurah(${nomor})" style="margin-top:10px;padding:8px 16px;background:#d4af37;color:#0d3b2e;border:none;border-radius:8px;cursor:pointer;font-weight:bold">🔄 Coba Lagi</button><br><button onclick="showHome()" style="margin-top:10px;padding:8px 16px;background:white;color:#0d3b2e;border:none;border-radius:8px;cursor:pointer;font-weight:bold">🏠 Kembali</button></div>`;}
 }
 
 function renderArabic(ayah){
@@ -920,34 +947,7 @@ function initSwipeOnMushaf(){
   newMushafPage.addEventListener('touchend',e=>{if(e.target.classList.contains('verse-number')||e.target.closest('.verse-number'))return;const elapsed=Date.now()-touchStartTime;if(elapsed>500)return;const dx=e.changedTouches[0].screenX-touchStartX;const dy=e.changedTouches[0].screenY-touchStartY;if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>50){if(dx<0)changePage(1);else changePage(-1);}},{passive:true});
 }
 
-function setView(m){
-  currentView=m;
-  userPreferences.viewMode=m;
-  savePreferences();
-  document.getElementById('btnPerAyat').classList.toggle('active',m==='perAyat');
-  document.getElementById('btnPerHalaman').classList.toggle('active',m==='perHalaman');
-  renderView();
-}
-
-function setMode(m){
-  currentMode=m;
-  userPreferences.displayMode=m;
-  savePreferences();
-  document.getElementById('btnBoth').classList.toggle('active',m==='both');
-  document.getElementById('btnArab').classList.toggle('active',m==='arabic');
-  applyMode();
-}
-
 function applyMode(){document.querySelectorAll('.translation-block').forEach(el=>el.classList.toggle('hidden',currentMode==='arabic'));}
-
-function toggleTajwid(){
-  tajwidOn=!tajwidOn;
-  userPreferences.tajwid=tajwidOn;
-  savePreferences();
-  document.getElementById('btnTajwid').classList.toggle('active',tajwidOn);
-  document.getElementById('tajwidLegend').classList.toggle('hidden',!tajwidOn);
-  renderView();
-}
 
 function showHome(){
   forceStopAudio();
@@ -958,7 +958,6 @@ function showHome(){
   window.scrollTo(0,0);
 }
 
-// ============ PWA INSTALL ============
 let deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;const btn=document.getElementById('installBtn');if(btn)btn.style.display='inline-block';});
 window.addEventListener('appinstalled',()=>{deferredPrompt=null;const btn=document.getElementById('installBtn');if(btn)btn.style.display='none';});
@@ -969,7 +968,6 @@ function installPWA(){
 
 if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js').then(reg=>{console.log('✅ Service Worker terdaftar:',reg.scope);}).catch(err=>{console.warn('⚠️ SW gagal:',err.message);});});}
 
-// ============ INIT ============
 loadPrayerTimes();
 loadSurahList();
 </script>
